@@ -12,14 +12,16 @@ cache:
 notifications:
   email:
     on_failure: always
-env: BUILD_LEADER_ID=1
+env: BUILD_LEADER_ID=1 NODE_ENV=production
 
 jobs:
   include:
     - stage: Test on node 8
       node_js: '8'
-      before_script: npm prune -d
-      script: NODE_ENV=production npm run ci -d
+      before_script:
+        - npm prune -d
+        - NODE_ENV=development npm install
+      script: npm run ci -d
       deploy:
         provider: npm
         email: thezimmee@gmail.com
