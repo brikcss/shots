@@ -1,0 +1,39 @@
+### ------------------------------------------------------------------------------------------------
+##  @filename  .travis.yml
+##  @author  brikcss  <https://github.com/brikcss>
+##  @description  https://docs.travis-ci.com/user/customizing-the-build/
+### ------------------------------------------------------------------------------------------------
+
+language: node_js
+cache:
+  bundler: true
+  directories:
+    - node_modules
+notifications:
+  email:
+    on_failure: always
+env: BUILD_LEADER_ID=1 NODE_ENV=production
+
+jobs:
+  include:
+    - stage: Test on node 8
+      node_js: '8'
+      before_script: npm prune -d
+      script: npm run ci -d
+      deploy:
+        provider: npm
+        email: thezimmee@gmail.com
+        api_key: $NPM_TOKEN
+        skip_cleanup: true
+      # deploy:
+      #   provider: script
+      #   skip_cleanup: true
+      #   script:
+      #     - npx semantic-release
+
+branches:
+  only:
+    - master
+# branches:
+#   except:
+#     - /^v\d+\.\d+\.\d+$/

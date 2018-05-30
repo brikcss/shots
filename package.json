@@ -1,0 +1,78 @@
+{
+	"name": "@brikcss/shots",
+	"version": "0.0.1",
+	"description": "UI visual browser screenshot regression test tool.",
+	"author": "Brikcss <https://github.com/brikcss>",
+	"contributors": [
+		"The Zimmee <thezimmee@gmail.com>"
+	],
+	"homepage": "https://github.com/brikcss/shots",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brikcss/shots.git"
+	},
+	"bugs": {
+		"url": "https://github.com/brikcss/shots/issues"
+	},
+	"keywords": [
+		"brikcss",
+		"ui",
+		"visual",
+		"browser",
+		"screenshots",
+		"regression",
+		"test"
+	],
+	"bin": {
+		"shots": "bin/shots-cli.js"
+	},
+	"main": "./dist/lib/shots.js",
+	"publishConfig": {
+		"tag": "dev",
+		"access": "public"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "NODE_ENV=production node ./node_modules/.bin/pre-commit-lint",
+			"commit-msg": "commitlint -e $GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${GIT_PARAMS}",
+			"pre-push": ". ./node_modules/.bin/pre-push-check-stage && echo \"\n[ok] Pushing code...\""
+		}
+	},
+	"scripts": {
+		"start": "npm run test:unit -- --watch",
+		"ci": "npm test",
+		"postci": "concurrently --raw \"cat coverage/lcov.info | codacy-coverage\" \"cat coverage/lcov.info | coveralls\"",
+		"test": "concurrently --raw \"npm run lint\" \"npm run test:coverage\"",
+		"test:unit": "node ./node_modules/.bin/mocha \"./test/*.spec.js\" --reporter=mocha-better-spec-reporter --colors",
+		"test:coverage": "nyc --reporter=lcov --reporter=text mocha \"./test/*.spec.js\" --recursive",
+		"lint": "node ./node_modules/.bin/eslint ./src/**/*.js",
+		"postlint": "echo \"[ok] Linter complete.\"",
+		"semantic-release": "semantic-release"
+	},
+	"devDependencies": {
+		"@brikcss/eslint-config": "0.1.4",
+		"@brikcss/git-hooks": "1.0.9",
+		"@commitlint/cli": "6.2.0",
+		"codacy-coverage": "3.0.0",
+		"concurrently": "3.5.1",
+		"coveralls": "3.0.1",
+		"eslint": "4.19.1",
+		"mocha": "5.1.1",
+		"mocha-better-spec-reporter": "3.1.0",
+		"nyc": "11.8.0",
+		"prettier": "1.12.1",
+		"rimraf": "2.6.2",
+		"semantic-release": "15.4.1",
+		"shelljs": "0.8.2"
+	},
+	"dependencies": {
+		"browser-sync": "2.24.4",
+		"colors": "1.3.0",
+		"fast-glob": "2.2.2",
+		"fs-extra": "6.0.1",
+		"minimist": "1.2.0",
+		"pixelmatch": "4.0.2",
+		"pngjs": "3.3.3",
+		"puppeteer": "1.4.0"
+	}
+}
