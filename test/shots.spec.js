@@ -47,19 +47,15 @@ describe('walk thru entire shots workflow', function() {
 	});
 
 	context('baseline()', () => {
-		it('creates and saves new baseline shots', (done) => {
-			shots
-				.baseline(config)
-				.then((result) => {
-					assert.ok(result.success);
-					assert.ok(result.tests instanceof Array);
-					assert.equal(result.tests.length, 4);
-					result.tests.forEach((test) => {
-						assert.ok(fs.pathExistsSync(test.result));
-					});
-					done();
-				})
-				.catch(done);
+		it('creates and saves new baseline shots', () => {
+			return shots.baseline(config).then((result) => {
+				assert.ok(result.success);
+				assert.ok(result.tests instanceof Array);
+				assert.equal(result.tests.length, 4);
+				result.tests.forEach((test) => {
+					assert.ok(fs.pathExistsSync(test.result));
+				});
+			});
 		});
 	});
 
