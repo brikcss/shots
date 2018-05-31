@@ -28,8 +28,8 @@ let config = {
 			path: 'feature.html'
 		}
 	],
-	browserSync: {
-		server: 'test/fixtures/pages'
+	server: {
+		rootPath: 'test/fixtures/pages'
 	},
 	debug: process.env.NODE_ENV === 'test'
 };
