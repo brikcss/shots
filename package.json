@@ -57,13 +57,13 @@
 		"concurrently": "3.5.1",
 		"coveralls": "3.0.1",
 		"eslint": "4.19.1",
+		"execa": "0.10.0",
 		"mocha": "5.1.1",
 		"mocha-better-spec-reporter": "3.1.0",
 		"nyc": "11.8.0",
 		"prettier": "1.12.1",
 		"rimraf": "2.6.2",
-		"semantic-release": "15.4.1",
-		"shelljs": "0.8.2"
+		"semantic-release": "15.4.1"
 	},
 	"dependencies": {
 		"browser-sync": "2.24.4",
