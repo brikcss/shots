@@ -16,7 +16,8 @@ const minimistOptions = {
 		viewports: 'V',
 		threshold: 'T',
 		shotsDir: 'S',
-		log: 'l'
+		log: 'l',
+		exit: 'x'
 	}
 };
 let config = require('minimist')(process.argv.slice(2), minimistOptions);
@@ -45,5 +46,4 @@ Object.keys(minimistOptions.alias).forEach((key) => {
 
 /** Run shots.
  ============================================================================================= */
-
 shots[cmd](config);
