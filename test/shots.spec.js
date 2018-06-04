@@ -31,7 +31,7 @@ let config = {
 	server: {
 		rootPath: 'test/fixtures/pages'
 	},
-	exit: false,
+	fail: false,
 	debug: process.env.NODE_ENV === 'test'
 };
 const beforeShot = (test, { page }) => {

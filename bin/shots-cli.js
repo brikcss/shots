@@ -17,7 +17,7 @@ const minimistOptions = {
 		threshold: 'T',
 		shotsDir: 'S',
 		log: 'l',
-		exit: 'x'
+		fail: 'x'
 	}
 };
 let config = require('minimist')(process.argv.slice(2), minimistOptions);
