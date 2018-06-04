@@ -31,6 +31,7 @@ let config = {
 	server: {
 		rootPath: 'test/fixtures/pages'
 	},
+	emptyTests: false,
 	fail: false,
 	debug: process.env.NODE_ENV === 'test'
 };
@@ -62,7 +63,7 @@ describe('walk thru entire shots workflow', function() {
 
 	context('test()', () => {
 		it('passes with no diffs', () => {
-			return shots.test(config).then((result) => {
+			return shots.test(Object.assign({}, config, { emptyTests: true })).then((result) => {
 				assert.ok(result.success);
 				assert.ok(result.tests instanceof Array);
 				assert.equal(result.tests.length, 4);

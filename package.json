@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/shots",
-	"version": "0.0.7",
+	"version": "0.0.9",
 	"description": "UI visual browser screenshot regression test tool.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
