@@ -66,6 +66,8 @@ CLI:
 
 ```sh
 shots baseline <options>
+# or with NPM scripts:
+npx shots baseline <options>
 ```
 
 Node:
@@ -82,6 +84,8 @@ CLI:
 
 ```sh
 shots test <options>
+# or with NPM scripts:
+npx shots test <options>
 ```
 
 Node:
@@ -98,6 +102,8 @@ CLI:
 
 ```sh
 shots approve <options>
+# or with NPM scripts:
+npx shots approve <options>
 ```
 
 Node:
