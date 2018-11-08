@@ -1,5 +1,7 @@
 # Shots
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brikcss/shots.svg)](https://greenkeeper.io/)
+
 <!-- Shields. -->
 <p>
 	<!-- NPM version. -->
